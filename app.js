@@ -16,11 +16,11 @@ const productRouter = require("./routers/productroutes");
 const reviewRouter = require("./routers/reviewroutes");
 const app = express();
 //webhook-checkout
-// app.post(
-//   "/webhook-checkout",
-//   bodyParser.raw({ type: "application/json" }),
-//   webhookCheckout
-// );
+app.post(
+  "/webhook-checkout",
+  bodyParser.raw({ type: "application/json" }),
+  webhookCheckout
+);
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
@@ -35,10 +35,10 @@ app.use(cors());
 app.use("/api/category/", categoryRouter);
 app.use("/api/user/", userRouter);
 app.use("/api/product", productRouter);
-// app.use("/api/reviews", reviewRouter);
-// app.use("/api/cart/", cartRouter);
-// app.use("/api/profile", profileRouter);
-// app.use("/api/payment/", paymentRouter);
+app.use("/api/reviews", reviewRouter);
+app.use("/api/cart/", cartRouter);
+app.use("/api/profile", profileRouter);
+app.use("/api/payment/", paymentRouter);
 
 app.all("*", (req, res, next) => {
   return next(

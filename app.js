@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(cors());
 //Router mount
 app.use("/api/category/", categoryRouter);
-// app.use("/api/user/", userRouter);
+app.use("/api/user/", userRouter);
 // app.use("/api/product", productRouter);
 // app.use("/api/reviews", reviewRouter);
 // app.use("/api/cart/", cartRouter);
